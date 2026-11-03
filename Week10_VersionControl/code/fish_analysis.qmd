@@ -54,3 +54,19 @@ write_csv(fish, "../data/fish_clean.csv")
 ggplot(fish_data, aes(x = scalelength)) +
   geom_histogram()
 ```
+
+a.  Modify this code to look at narrower range of scale size classes by setting the bins argument to 80.
+
+    ```{r}
+    # i named my new csv fish instead of fish_data
+    scale_hist_by_length <- ggplot(fish, aes(x = scalelength)) +
+      geom_histogram(bins = 80)
+    scale_hist_by_length
+    ```
+
+b.  Save the changes to the code. Additionally, save this new plot as `scale_hist_by_length.jpg` using `ggsave`. Be sure to save your plot to an appropriate sub-directory.
+
+    ```{r}
+    ggsave("scale_hist_by_length.jpg", 
+           path = "../images/")
+    ```
