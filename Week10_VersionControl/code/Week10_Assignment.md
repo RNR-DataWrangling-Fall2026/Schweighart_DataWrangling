@@ -143,6 +143,8 @@ file from Github.
 
 2.  Click `OK`.
 
+    1.  *done*
+
 3.  You should see the new lines of code in your `fish_analysis.qmd`.
 
         ggplot(fish_data, aes(x = scalelength)) +
@@ -151,17 +153,25 @@ file from Github.
 4.  Modify this code to look at narrower range of scale size classes by
     setting the bins argument to 80.
 
+    1.  *done*
+
 5.  Save the changes to the code. Additionally, save this new plot as
     `scale_hist_by_length.jpg` using `ggsave`. Be sure to save your plot
     to an appropriate sub-directory.
+
+    1.  *done*
 
 6.  Render this document. It will produce a `.md` file instead of a PDF
     (you can read more about that in Question 7). For now, just know
     this is correct.
 
+    1.  *done*
+
 7.  Commit the new code, resulting `.jpg` file, and the `.md` file by
     adding all files by staging and committing with a good commit
     message. Push this commit to GitHub.
+
+    1.  *done*
 
 ### 5. Create a Final Project Repo (20 points)
 
