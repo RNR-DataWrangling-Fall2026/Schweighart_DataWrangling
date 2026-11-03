@@ -49,3 +49,8 @@ fish
 ```{r}
 write_csv(fish, "../data/fish_clean.csv")
 ```
+
+```{r}
+ggplot(fish_data, aes(x = scalelength)) +
+  geom_histogram()
+```
