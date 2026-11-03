@@ -1,4 +1,4 @@
-# Schweighart_DataWranglingRNR437/537
+# Schweighart_DataWrangling_RNR437
 
 Data Wrangling Fall 2026 Repo
 
