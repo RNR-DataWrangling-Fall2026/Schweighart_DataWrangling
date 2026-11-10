@@ -297,6 +297,12 @@ If surveys.csv, species.csv, and plots.csv are not available in your workspace d
    destfile = "../data/species.csv")
 ```
 
+```{r}
+surveys <- read_csv("../data/surveys.csv")
+plots <- read_csv("../data/plots.csv")
+species <- read_csv("../data/species.csv")
+```
+
 a.  Write a function that does the following:
 
 -   Takes the following four arguments:
@@ -310,18 +316,42 @@ a.  Write a function that does the following:
 
     ```{r}
     create_time_scatterplot <- function(df, time, genus_name, species_name){
-      ggplot(df, aes(x = time, y = count(genus_name + species_name)))+
+      filter(df, genus == genus_name, species == species_name) |> 
+        count({{time}}) |> 
+      ggplot(aes(x = {{time}}, y = n))+
         geom_point(size = 2, color = "blue")+
         geom_line(linewidth = 1, color = "blue")+
-        labs(x = )
+        labs(y = "Number of Individuals")+
+        theme_classic()
     }
     ```
 
 b.  Use your function, and the data in `surveys.csv` and `species.csv`, to plot the time-series for `time = year`, `genus_name = "Dipodomys"` and `species_name = "merriami"`.
 
+    ```{r}
+    surveys_species <- inner_join(surveys, species)
+
+    create_time_scatterplot(surveys_species, year, 
+                            "Dipodomys", "merriami")
+    ```
+
 c.  Use your function, and the data in `surveys.csv` and `species.csv`, to plot the time-series for `time = month`, `genus_name = "Chaetodipus"` and `species_name = "penicillatus"` (this plot will show the average seasonal pattern of *Chaetodipus penicillatus* abundances)
 
+    ```{r}
+    create_time_scatterplot(surveys_species, month, 
+                            "Chaetodipus", "penicillatus")
+    ```
+
 d.  Use your function, and the data from `plots.csv`, `surveys.csv` and `species.csv`, to plot the time-series for `time = year`, `genus_name = "Chaetodipus"` and `species_name = "baileyi"` only on the "Control" plots.
+
+    ```{r}
+    all_portal <- inner_join(surveys_species, plots) |> 
+      filter(plot_type == "Control")
+
+    create_time_scatterplot(all_portal, year,
+                            "Chaetodipus", "baileyi")
+
+    ```
 
 ### 8. Documenting Your Functions (OPTIONAL)
 
