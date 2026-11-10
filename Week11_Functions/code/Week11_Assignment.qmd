@@ -230,6 +230,10 @@ count_data <- data.frame(
 
 a.  Write a function takes two arguments: (1) a data frame with a `count` column and an `area` column; and (2) a column in that data frame to color the points by.
 
+    ```{r}
+    library(tidyverse)
+    ```
+
     Have the function make a plot with `area` on the x-axis and `count` on the y-axis and the points colored by the column you provided as an argument. Set the size of the points to 3. Use the function to make a scatter plot of count as a function of area for the `count_data` data frame with the points colored by the `state` column.
 
     ```{r}
