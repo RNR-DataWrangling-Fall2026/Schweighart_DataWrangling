@@ -142,9 +142,15 @@ a.  Complete the following `if` statement so that if `age_class` is equal to "sa
 
 ```{r}
 age_class <- "adult"
-if (){
 
+if (age_class == "sapling"){
+  y <- 5
+} else if (age_class == "seedling"){
+  y <- 5
+} else {
+  y <- 0
 }
+
 y
 ```
 
